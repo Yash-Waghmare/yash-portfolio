@@ -1,5 +1,22 @@
-export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://yashwaghmare.com";
+function resolveSiteUrl() {
+  const candidates = [
+    process.env.NEXT_PUBLIC_SITE_URL,
+    process.env.VERCEL_PROJECT_PRODUCTION_URL,
+    process.env.VERCEL_URL,
+  ];
+
+  for (const value of candidates) {
+    const trimmed = value?.trim();
+    if (!trimmed) continue;
+    return trimmed.startsWith("http://") || trimmed.startsWith("https://")
+      ? trimmed
+      : `https://${trimmed}`;
+  }
+
+  return "https://yashwaghmare.com";
+}
+
+export const SITE_URL = resolveSiteUrl();
 
 export const profile = {
   name: "Yash Waghmare",
