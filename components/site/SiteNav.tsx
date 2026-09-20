@@ -58,14 +58,21 @@ export function SiteNav() {
         <div className="flex items-center gap-2">
           <Link
             href="/resume"
-            className="inline-flex h-9 items-center gap-1 rounded bg-primary px-4 text-sm font-semibold text-on-primary shadow-sm hover:bg-secondary"
+            className={`inline-flex h-8 items-center gap-1.5 rounded-full px-3.5 text-[13px] font-semibold tracking-tight transition-all ${
+              pathname === "/resume"
+                ? "bg-primary text-on-primary shadow-[0_4px_14px_rgba(0,101,145,0.25)]"
+                : "bg-primary-fixed text-on-primary-container hover:bg-primary hover:text-on-primary hover:shadow-[0_4px_14px_rgba(0,101,145,0.25)]"
+            }`}
           >
-            <Icon name="download" className="text-[18px]" />
+            <Icon name="download" className="text-[16px]" />
             Resume
           </Link>
-          <span className="hidden size-8 items-center justify-center rounded-full bg-primary sm:inline-flex">
-            <Icon name="person" className="text-[18px] text-on-primary" />
-          </span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={profile.photoPath}
+            alt={profile.name}
+            className="hidden size-8 rounded-full object-cover object-[center_18%] sm:inline-block"
+          />
           <button
             type="button"
             className="inline-flex min-h-11 min-w-11 items-center justify-center rounded border border-outline md:hidden"

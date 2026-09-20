@@ -19,6 +19,7 @@ export const profile = {
   github: "https://github.com/Yash-Waghmare",
   twitter: "",
   resumePath: "/downloads/resume.pdf",
+  photoPath: "/images/yash-waghmare.jpg",
   homeTitle: "Yash Waghmare — Software Developer",
   homeDescription:
     "Software developer building, modernizing, and expanding into cloud and AI.",
