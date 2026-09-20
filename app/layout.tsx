@@ -64,7 +64,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${inter.variable} ${jetbrains.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-dvh bg-terminal text-terminal-text">
+      <body
+        className="min-h-dvh bg-terminal text-terminal-text"
+        suppressHydrationWarning
+      >
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
