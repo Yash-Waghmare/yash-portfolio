@@ -5,7 +5,15 @@ import { profile } from "@/content/profile";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-const COMMANDS = [
+type Command = {
+  label: string;
+  href: string;
+  icon: string;
+  download?: boolean;
+  primary?: boolean;
+};
+
+const COMMANDS: Command[] = [
   { label: "yash projects", href: "/work", icon: "arrow_forward" },
   { label: "yash whoami", href: "/about", icon: "badge" },
   { label: "yash skills", href: "/skills", icon: "memory" },
@@ -17,7 +25,7 @@ const COMMANDS = [
     download: true,
     primary: true,
   },
-] as const;
+];
 
 export function HomeHeroTerminal() {
   const router = useRouter();
@@ -128,19 +136,19 @@ export function HomeHeroTerminal() {
                   type="button"
                   onClick={() => run(command)}
                   className={`group inline-flex cursor-pointer items-center gap-1.5 rounded px-3 py-1.5 font-mono text-[13px] shadow-sm transition-all ${
-                    "primary" in command && command.primary
+                    command.primary
                       ? "bg-primary text-on-primary hover:bg-secondary"
                       : "bg-[#1e293b] text-primary-container hover:bg-primary hover:text-on-primary"
                   }`}
                 >
-                  <span className={"primary" in command && command.primary ? "" : "text-host group-hover:text-on-primary"}>
+                  <span className={command.primary ? "" : "text-host group-hover:text-on-primary"}>
                     $
                   </span>
                   <span>{command.label}</span>
                   <Icon
                     name={command.icon}
                     className={`text-[14px] ${
-                      "primary" in command && command.primary
+                      command.primary
                         ? ""
                         : "opacity-70 group-hover:translate-x-0.5 group-hover:opacity-100"
                     }`}
