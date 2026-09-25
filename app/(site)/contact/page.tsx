@@ -89,7 +89,7 @@ export default function ContactPage() {
             <div className="mt-1">
               <h2 className="text-xl font-semibold text-on-surface">LinkedIn</h2>
               <p className="mt-1 truncate font-mono text-base text-on-surface-variant">
-                linkedin.com/in/yash-waghmare
+                linkedin.com/in/yash-waghmare-7b8b51201
               </p>
             </div>
           </div>
@@ -193,20 +193,9 @@ export default function ContactPage() {
               >
                 <span className="flex items-center gap-2">
                   <Icon name="picture_as_pdf" className="text-[20px]" />
-                  Download Formatted PDF
+                  Download Resume
                 </span>
                 <Icon name="download" className="text-[18px] transition-transform group-hover:translate-y-0.5" />
-              </a>
-              <a
-                href={profile.resumePath}
-                download
-                className="group flex items-center justify-between rounded-lg bg-surface-container-lowest px-4 py-3 text-sm font-semibold text-on-surface shadow-sm hover:bg-surface-hover"
-              >
-                <span className="flex items-center gap-2">
-                  <Icon name="terminal" className="text-[20px] text-muted" />
-                  Download ATS-Friendly PDF
-                </span>
-                <Icon name="download" className="text-[18px] text-muted transition-transform group-hover:translate-y-0.5" />
               </a>
               <Link
                 href="/resume"

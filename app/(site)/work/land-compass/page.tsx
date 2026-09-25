@@ -40,6 +40,8 @@ export default function LandCompassCaseStudyPage() {
                 <a
                   key={link.label}
                   href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-sm font-medium text-primary hover:underline"
                 >
                   {link.label}

@@ -1,13 +1,11 @@
 "use client";
 
 import { Icon } from "@/components/site/Icon";
+import { ResumeButton } from "@/components/site/ResumeButton";
 import { navLinks, profile } from "@/content/profile";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-
-const LOGO_SRC =
-  "https://lh3.googleusercontent.com/aida/AEtjO1VrVv2djoMoDpCL5JPnWLrWgcbYJc2gXMxf8Dr4IaWx9O4UpYOHpsWNi3yFBBaVsvv1NyZxbo5EFn24o1LJ5owcSZlkPPxcpj3emoxG-qGv4bTPVYenZDu6x1vZ8xUAETOi6hr5G-JGyB1PnGv7vFukUqcF8yTQtILIfG9NgnSiaEttBMMwSaUAuoV-lEtAls46iZZFkVQR3FmnMIG19GufNkGnMOrw56x9Fm_St8xWncXVO4EWbAv_fpA";
 
 export function SiteNav() {
   const pathname = usePathname();
@@ -18,12 +16,11 @@ export function SiteNav() {
       <div className="mx-auto flex h-[60px] max-w-7xl items-center justify-between px-4 lg:px-8">
         <Link href="/" className="group flex items-center gap-2">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={LOGO_SRC}
-            alt=""
-            className="h-8 w-auto object-contain"
-          />
-          <span className="flex flex-col leading-tight">
+          <img src={profile.logoPath} alt="" className="size-8" />
+          <span className="text-sm font-bold tracking-tight text-on-surface">
+            yash<span className="text-primary-container">.dev</span>
+          </span>
+          <span className="ml-3 hidden flex-col leading-tight sm:flex">
             <span className="text-sm font-semibold text-on-surface group-hover:text-primary">
               {profile.name}
             </span>
@@ -55,18 +52,8 @@ export function SiteNav() {
           })}
         </nav>
 
-        <div className="flex items-center gap-2">
-          <Link
-            href="/resume"
-            className={`inline-flex h-8 items-center gap-1.5 rounded-full px-3.5 text-[13px] font-semibold tracking-tight transition-all ${
-              pathname === "/resume"
-                ? "bg-primary text-on-primary shadow-[0_4px_14px_rgba(0,101,145,0.25)]"
-                : "bg-primary-fixed text-on-primary-container hover:bg-primary hover:text-on-primary hover:shadow-[0_4px_14px_rgba(0,101,145,0.25)]"
-            }`}
-          >
-            <Icon name="download" className="text-[16px]" />
-            Resume
-          </Link>
+        <div className="flex items-center gap-3">
+          <ResumeButton />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={profile.photoPath}

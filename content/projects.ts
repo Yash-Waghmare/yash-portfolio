@@ -17,7 +17,7 @@ export type Project = {
   outcomes: string[];
   technologies: string[];
   href: string;
-  storeLinks?: { label: string; href: string }[];
+  storeLinks?: { label: string; href: string; icon: string }[];
   featured: boolean;
 };
 
@@ -87,8 +87,17 @@ export const projects: Project[] = [
     technologies: ["React Native", "Expo", "Firebase", "REST API"],
     href: "/work/land-compass",
     storeLinks: [
-      { label: "iOS App Store", href: "#" },
-      { label: "Google Play", href: "#" },
+      {
+        label: "App Store",
+        href: "https://apps.apple.com/in/app/land-compass/id6801204556",
+        icon: "phone_iphone",
+      },
+      {
+        label: "Google Play",
+        href: "https://play.google.com/store/apps/details?id=com.landcompass.app",
+        icon: "android",
+      },
+      { label: "Website", href: "https://landcompass.in/", icon: "language" },
     ],
     featured: true,
   },

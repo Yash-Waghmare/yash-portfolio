@@ -98,30 +98,17 @@ export default function ResumePage() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-2">
-        <a
-          href={profile.resumePath}
-          download
-          className="group flex items-center justify-between rounded-lg bg-primary px-4 py-3 text-sm font-semibold text-on-primary shadow-sm hover:bg-secondary"
-        >
-          <span className="flex items-center gap-2">
-            <Icon name="picture_as_pdf" className="text-[20px]" />
-            Download Formatted PDF
-          </span>
-          <Icon name="download" className="text-[18px]" />
-        </a>
-        <a
-          href={profile.resumePath}
-          download
-          className="flex items-center justify-between rounded-lg bg-surface-container-lowest px-4 py-3 text-sm font-semibold text-on-surface shadow-sm hover:bg-surface-hover"
-        >
-          <span className="flex items-center gap-2">
-            <Icon name="terminal" className="text-[20px] text-muted" />
-            Download ATS-Friendly PDF
-          </span>
-          <Icon name="download" className="text-[18px] text-muted" />
-        </a>
-      </div>
+      <a
+        href={profile.resumePath}
+        download
+        className="group flex items-center justify-between rounded-lg bg-primary px-4 py-3 text-sm font-semibold text-on-primary shadow-sm hover:bg-secondary"
+      >
+        <span className="flex items-center gap-2">
+          <Icon name="picture_as_pdf" className="text-[20px]" />
+          Download Resume
+        </span>
+        <Icon name="download" className="text-[18px] transition-transform group-hover:translate-y-0.5" />
+      </a>
     </div>
   );
 }

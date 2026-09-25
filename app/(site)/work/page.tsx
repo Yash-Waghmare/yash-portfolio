@@ -1,7 +1,8 @@
 "use client";
 
 import { Icon } from "@/components/site/Icon";
-import { earlierProjects } from "@/content/projects";
+import { ModernizationDiagram } from "@/components/site/ModernizationDiagram";
+import { earlierProjects, projects } from "@/content/projects";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 
@@ -16,6 +17,8 @@ const MAP_SRC =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuBfHn1He20XY82a0QjWESxQl0x4npp8FXC-3QXH9LN-jfRdJ4yui2wAwl2hGhKwILQRbQ-j3Njbz0pZVyQFa5VhARmu-GVpRlRMeL4LVihHq0HrZH6AsHWGtAw8vA5YMvEPUKGXN07fSe6d68ft9S_sytbgKuCuIhUHSXXlGErER7SxbiMuYjWDLqlxuY-QHxWgpsLxEetPlWnCCehhg36L_cMqhSE8R3z2FL7VERy0Py8-kfsUnKFX";
 const PLOT_SRC =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuBhnWYkhvtoaI1b7DIZ2ZTV18BaEJyeIXHladwB5xTzkAkQXUmwFQfsApiNm6drY_hWUr2O2cLx0SRetC3sX2TLh2yGqVflAfUwC_8-xmWKBx5i0aSA40s1J28csVTUH6FD6WKuboEMZPQAMFBlLBfl114QXPfT2WXMo7iU5Q5EHrgm6h79wjRN-BgWQbvw6P5juGN9T_4OCvfNlxSKsbUgYtc3QgK8JtRGkP1fl4S0YDAWbqcPo9pT";
+
+const landCompass = projects.find((project) => project.slug === "land-compass");
 
 const earlierMeta: Record<
   string,
@@ -198,48 +201,7 @@ export default function WorkPage() {
                     </div>
                     <span className="text-primary-container">SYS::RUNNING</span>
                   </div>
-                  <svg className="h-auto w-full fill-none stroke-current text-primary-container" viewBox="0 0 420 220">
-                    <rect className="fill-inverse-surface stroke-primary-container" height="50" rx="8" strokeWidth="1.5" width="100" x="10" y="20" />
-                    <text className="fill-primary-fixed text-[11px] font-sans font-semibold" textAnchor="middle" x="60" y="44">
-                      Legacy Vue
-                    </text>
-                    <text className="fill-error text-[9px] font-sans" textAnchor="middle" x="60" y="58">
-                      Monolithic State
-                    </text>
-                    <path className="stroke-warning motion-safe:animate-pulse" d="M 110 45 L 160 45" strokeDasharray="3 3" strokeWidth="2" />
-                    <polygon className="fill-warning stroke-warning" points="160,45 154,42 154,48" />
-                    <rect className="fill-surface-dark stroke-success" height="60" rx="8" strokeWidth="2" width="130" x="170" y="15" />
-                    <text className="fill-on-surface-dark text-[11px] font-sans font-bold" textAnchor="middle" x="235" y="38">
-                      Next.js Edge App
-                    </text>
-                    <text className="fill-success text-[9px] font-sans" textAnchor="middle" x="235" y="52">
-                      RTK Slices + Parity
-                    </text>
-                    <text className="fill-primary-container font-mono text-[8px]" textAnchor="middle" x="235" y="65">
-                      Strict TS Contract
-                    </text>
-                    <path className="stroke-primary-container" d="M 235 75 L 235 125" strokeWidth="1.5" />
-                    <polygon className="fill-primary-container" points="235,125 232,118 238,118" />
-                    <rect className="fill-inverse-surface stroke-white/20" height="65" rx="8" strokeWidth="1.5" width="190" x="140" y="130" />
-                    <text className="fill-on-surface-dark text-[11px] font-sans font-semibold" textAnchor="middle" x="235" y="152">
-                      AWS ECS / Terraform VPC
-                    </text>
-                    <text className="fill-muted font-mono text-[9px]" textAnchor="middle" x="235" y="168">
-                      MongoDB • Docker • Redis Cache
-                    </text>
-                    <text className="fill-primary-fixed font-mono text-[8px]" textAnchor="middle" x="235" y="183">
-                      Zero-Downtime Blue/Green
-                    </text>
-                    <path className="stroke-primary-container" d="M 300 45 L 340 45" strokeWidth="1.5" />
-                    <polygon className="fill-primary-container" points="340,45 334,42 334,48" />
-                    <rect className="fill-inverse-surface stroke-warning" height="40" rx="6" strokeWidth="1.5" width="65" x="345" y="25" />
-                    <text className="fill-warning text-[10px] font-sans font-semibold" textAnchor="middle" x="377" y="44">
-                      Angular
-                    </text>
-                    <text className="fill-muted text-[8px] font-sans" textAnchor="middle" x="377" y="57">
-                      Phase 2
-                    </text>
-                  </svg>
+                  <ModernizationDiagram />
                   <div className="flex flex-col gap-1 rounded-lg bg-inverse-surface/60 p-2 text-[11px] text-muted">
                     <div className="flex items-center justify-between text-primary-container">
                       <span>[MIGRATION_TELEMETRY]</span>
@@ -402,20 +364,18 @@ export default function WorkPage() {
                   )}
                 </div>
                 <div className="flex flex-wrap items-center gap-2 pt-1">
-                  <a
-                    href="#"
-                    className="inline-flex items-center gap-1 rounded-lg bg-surface-dark px-4 py-1 text-sm font-semibold text-on-surface-dark hover:bg-inverse-surface"
-                  >
-                    <Icon name="file_download" className="text-[18px]" />
-                    App Store
-                  </a>
-                  <a
-                    href="#"
-                    className="inline-flex items-center gap-1 rounded-lg bg-surface-dark px-4 py-1 text-sm font-semibold text-on-surface-dark hover:bg-inverse-surface"
-                  >
-                    <Icon name="android" className="text-[18px]" />
-                    Google Play
-                  </a>
+                  {landCompass?.storeLinks?.map((link) => (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 rounded-lg bg-surface-dark px-4 py-1 text-sm font-semibold text-on-surface-dark hover:bg-inverse-surface"
+                    >
+                      <Icon name={link.icon} className="text-[18px]" />
+                      {link.label}
+                    </a>
+                  ))}
                   <Link
                     href="/work/land-compass"
                     className="inline-flex items-center gap-1 rounded-lg bg-surface-container-high px-4 py-1 text-sm font-semibold text-primary hover:bg-surface-variant"
